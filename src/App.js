@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import './App.css'
+import AppRouter from './components/AppRouter'
+import { AuthActionCreators } from './store/reducers/auth/action-creators'
+import { OrdersActionCreators } from './store/reducers/orders/action-creators'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (localStorage.getItem('auth')) {
+            dispatch(AuthActionCreators.setClient({ clientId: localStorage.getItem('clientId' || '') }))
+            dispatch(AuthActionCreators.setIsAuth(true))
+            const clientId = Number(localStorage?.getItem('clientId'))
+            dispatch(OrdersActionCreators.getOrders(clientId))
+        }
+    }, [])
+
+    return (
+        <div>
+            <AppRouter />
+        </div>
+    )
 }
 
-export default App;
+export default App

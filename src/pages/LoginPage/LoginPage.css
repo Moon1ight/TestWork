@@ -1,0 +1,14 @@
+.login_greetings {
+    margin-bottom: 45px;
+    font-size: 25px;
+    letter-spacing: 0.3px;
+    font-weight: bold;
+}
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

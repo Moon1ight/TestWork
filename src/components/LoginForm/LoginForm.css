@@ -1,0 +1,27 @@
+.login_input {
+    width: 380px;
+    height: 56px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border: 2px solid #1e6fb9;
+    border-radius: 6px;
+    padding: 17px 11px;
+    margin-bottom: 12px;
+    color: #000;
+    font-size: 18px;
+    line-height: 120%;
+}
+
+.login_btn {
+    cursor: pointer;
+    color: #fff;
+    background: #1e6fb9;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+.login_btn:hover {
+    background: #1861a5;
+}
